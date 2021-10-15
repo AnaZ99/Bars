@@ -1,0 +1,80 @@
+﻿@model Barovi.Models.Bars
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+<br />
+<div class="eden" style="background-color:rgba(3, 11, 85, 0.2)">
+    <h2 style="text-align:center;background-color:#E3D654; color:white;font-family:'Comic Sans MS'">Детали за барот @ViewBag.Ime</h2>
+    <hr/>
+    <div>
+
+        
+        <div class="heh">
+            <h1 style="text-align:center">
+                <img alt="" id="image1" src="@Model.Image" style="height:330px"  />
+            </h1>
+            <br />
+
+
+            <h3 style="text-align:center; border:groove; font-family:'Comic Sans MS'; color:white; background-color: rgba(3, 11, 85, 0.2);">
+                Барот @Html.DisplayFor(model => model.Name) се наоѓа во @Html.DisplayFor(model => model.Grad) и има рејтинг @Html.DisplayFor(model => model.Rating).
+                Неговото работно време е: @Html.DisplayFor(model => model.Hours). Барот има ограничен капацитет од @Html.DisplayFor(model => model.Kapacitet) гости. За повеќе информации, обратете се кај надлежните, на телефон:   @Html.DisplayFor(model => model.Phone).
+            </h3>
+            <br />
+        </div>
+    </div>
+    </div>
+    <div style="font-size:30px">
+
+</div>
+    
+<html>
+
+    <head>
+
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+        
+    </head>
+
+    <body>
+        <div>
+        <style>
+
+            #map {
+                width:1140px; height:500px;
+            }
+        </style>
+            </div>
+        <div id="map">
+
+        </div>
+        <script>
+            var map = L.map('map').setView([@Model.Lat,@Model.Lon], 17);
+           
+
+
+        L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=G0ORumnaC3VPqjNCyHWK', { attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>', }).addTo(map);
+
+        var marker = L.marker([@Model.Lat, @Model.Lon]).addTo(map);
+
+
+        </script>
+
+    </body>
+</html>
+
+<br/>
+
+<p style="font-size:30px">
+
+    @Html.ActionLink("Назад", "Index") |  @Html.ActionLink("Види пијалоци на промоција", "Meni")
+</p>
+
+
+   
+
+   

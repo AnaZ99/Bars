@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Barovi.Models.Events>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<br/>
+
+<div class="eden" style="background-color:#A98F72; border:double;  border-color:white">
+    <h1 style="text-align:center; color:white; margin-top:6px; font-family:'Comic Sans MS'">НАСТАНИ</h1>
+   
+        <section class="part2">
+            <div class="container2">
+                <div class="row1" style="font-size:20px; font-family:'Comic Sans MS'; color:white">
+                    @foreach (var item in Model)
+                    {
+                        
+                    <div class="col-md-4" style="border:double; margin-top:40px; border-color:white; background-color:#BDBD9C; ">
+                        <img alt="" class="resize-image center-block" id="image1" src="@item.Image" style="height:230px" width="220" />
+                        <p class="text-center"><b> @Html.DisplayFor(modelItem => item.Name)</b></p>
+                        <p class="text-center" style="border:double; background-color:#A98F72; border-color:white"> @Html.DisplayFor(modelItem => item.Location)</p>
+
+
+                        <div style="font-size:30px; text-align:center " id="details">@Html.ActionLink("Види детали", "Details", new { id = item.Name })</div>
+                       
+                    </div>
+                        
+                    }
+                </div>
+            </div>
+        </section>
+
+</div>
+
+
+
+
+
+
+
+
+@section Scripts{
+
+    <script>
+
+        $("#table1").DataTable();
+
+    </script>
+
+}

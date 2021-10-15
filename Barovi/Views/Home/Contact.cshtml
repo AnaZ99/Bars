@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+
+<div class="eden" style="background-color: #B69A7C; border:double; margin-top:60px; border-color:white">
+
+    <h1 style="text-align:center; font-family:'Comic Sans MS'; background-color:#908477; color:white">ИНФОРМАЦИИ ЗА КОНТАКТ</h1>
+    <hr />
+    <br />
+    <address style="font-size:25px;color:white; font-family:'Comic Sans MS'">
+        ул."Илинденска" бр. 12 <br />
+        <br />
+        <div title="Phone" style="font-size: 25px; color: white; font-family: 'Comic Sans MS'">Тел. број:    075/264-362 <br /> </div>
+    </address>
+
+    <address style=" color:white ; font-size:25px;font-family:'Comic Sans MS'">
+        <arress style=" color:white; font-size:25px; font-family:'Comic Sans MS'">Е-маил адреса:   tim_dians@gmail.com</arress><br />
+
+    </address>
+
+
+
+    <html>
+
+    <head>
+        <title>Geolocation</title>
+    </head>
+    
+
+    <body>
+        <a href="#" id="get_location" style="font-size:30px"><b>Get location</b></a>
+        <div id="map">
+
+            <iframe id="google_map" width="1135" height="500" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.mk?output=embed"></iframe>
+
+
+
+
+        </div>
+        <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+                integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+                crossorigin=""></script>
+        <script>
+            var c = function (pos) {
+                var lat = pos.coords.latitude,
+                    long = pos.coords.longitude,
+                    coords = lat + ', ' + long;
+
+                document.getElementById('google_map').setAttribute('src', 'https://maps.google.mk/?q=' + coords + '&z=60&output=embed');
+            }
+
+            document.getElementById('get_location').onclick = function () {
+                navigator.geolocation.getCurrentPosition(c);
+                return false;
+            }
+        </script>
+
+    </body>
+    </html>
+
+</div>

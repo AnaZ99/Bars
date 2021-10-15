@@ -1,0 +1,41 @@
+﻿@model Barovi.Models.Events
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+
+
+<br />
+<div class="eden" style="background-color:#AF9149">
+    <h2 style="text-align:center;color:white;background-color:#EEC35B;font-family:'Comic Sans MS'">Детали за настанот</h2>
+
+    <div>
+
+        <hr />
+        <div class="heh">
+            <h1 style="text-align:center">
+                <img alt="" id="image1" src="@Model.Image" style="height:330px" width="300" />
+            </h1>
+            <br />
+
+
+            <h3 style="text-align:center; border:groove; font-family:'Comic Sans MS'; color:white; background-color: rgba(3, 11, 85, 0.2);">
+                Настанот ќе се одвива во барот @Html.DisplayFor(model => model.Location), во кој ќе настапува @Html.DisplayFor(model => model.Name). Дозвола за влез имаат сите оние кои имаат @Html.DisplayFor(model => model.Age) години. <br/>
+                Влезницата изнесува: @Html.DisplayFor(model => model.Price) ден.
+            </h3>
+            <br />
+        </div>
+    </div>
+
+    <div style="font-size:30px">
+        <p>
+
+            @Html.ActionLink("Назад", "Index") |  @Html.ActionLink("Види пијалоци на промоција за настанот", "Meni", "Bars") 
+        </p>
+    </div>
+
+
+
+</div>
